@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_HOST=redis
+      - DATABASE_URL=mongodb+srv://vinayak1672006_db_user:kYB7x0YXj3VU16vn@cluster0.px9r0zb.mongodb.net/flightbooking
+      - JWT_SECRET=anyrandomlongstring1234567890
+      - EMAIL_USER=vinayak1672006@gmail.com
+      - EMAIL_PASS=lrow cfal kawy jfsd
+      - PORT=3000
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379"
